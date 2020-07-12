@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { CardList } from "./components/card-list/card-list.js";
 
 import "./App.css";
 
@@ -25,10 +26,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {/* map() has 2 args, the state we want (monsters),   */}
-        {this.state.monsters.map((monsters) => (
-          <h1 key={monsters.id}>{monsters.name}</h1>
-        ))}
+        <CardList name="zack" hello="yo">
+          {/* map() has 2 args, the state we want (monsters),   */}
+          {this.state.monsters.map((monsters) => (
+            <h1 key={monsters.id}>{monsters.name}</h1>
+          ))}
+        </CardList>
       </div>
     );
   }
