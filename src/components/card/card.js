@@ -2,6 +2,8 @@ import React from "react";
 
 import "./card.styles.css";
 
+// Function component that will return a 
+// div. 
 export const Card = (props) => (
   <div className="card-container">
     <img

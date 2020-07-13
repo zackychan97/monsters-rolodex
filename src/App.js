@@ -3,6 +3,12 @@ import { CardList } from "./components/card-list/card-list.js";
 
 import "./App.css";
 
+// Create a class component that sets state to an empty array
+// titled monsters. Then when the componentDidMount() aka change
+// the DOM, we will fetch to an API, then turn the response into
+// JSON, then we will setState of monsters array to users.
+// We will then render a div containing our CardList component.
+// To the CardList component, we are injecting in props of this.state.monsters
 class App extends Component {
   // Since we are using a class, we can create a way to access State:
   constructor() {
@@ -10,6 +16,7 @@ class App extends Component {
 
     this.state = {
       monsters: [],
+      ourSearchField: ''
     };
   }
 
@@ -26,6 +33,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <input type='search' placeholder='Search Monsters' onChange={e => console.log(e)} />
         <CardList monsters={this.state.monsters}></CardList>
       </div>
     );
