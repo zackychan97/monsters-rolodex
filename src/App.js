@@ -26,12 +26,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <CardList name="zack" hello="yo">
-          {/* map() has 2 args, the state we want (monsters),   */}
-          {this.state.monsters.map((monsters) => (
-            <h1 key={monsters.id}>{monsters.name}</h1>
-          ))}
-        </CardList>
+        <CardList monsters={this.state.monsters}></CardList>
       </div>
     );
   }
