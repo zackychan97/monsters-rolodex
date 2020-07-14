@@ -17,6 +17,10 @@ class App extends Component {
     this.state = {
       monsters: [],
       ourSearchField: "",
+      // Can delete below if don't work
+      emailSearch: "",
+      websiteSearch: "",
+      // Can delete above if don't work
     };
   }
 
@@ -31,10 +35,18 @@ class App extends Component {
   }
 
   render() {
-    const { monsters, ourSearchField } = this.state;
+    const { monsters, ourSearchField, emailSearch, websiteSearch } = this.state;
     const filteredMonsters = monsters.filter((monster) =>
       monster.name.toLowerCase().includes(ourSearchField.toLowerCase())
     );
+    // Can delete below if don't work
+    const filteredEmails = monsters.filter((monster) =>
+      monster.email.toLowerCase().includes(emailSearch.toLowerCase())
+    );
+    const filteredSites = monsters.filter((monster) =>
+      monster.website.toLowerCase().includes(websiteSearch.toLowerCase())
+    );
+    // Can delete above if don't work
     return (
       <div className="App">
         <input
@@ -42,7 +54,21 @@ class App extends Component {
           placeholder="Search Monsters"
           onChange={(e) => this.setState({ ourSearchField: e.target.value })}
         />
-        <CardList monsters={filteredMonsters}></CardList>
+        {/* Can delete below if don't work */}
+        <input
+          type="search"
+          placeholder="Search Emails"
+          onChange={(e) => this.setState({ emailSearch: e.target.value })}
+        />
+        <input
+          type="search"
+          placeholder="Search Websites"
+          onChange={(e) => this.setState({ websiteSearch: e.target.value })}
+        />
+        {/* Can delete above if don't work */}
+        <CardList
+          monsters={(filteredMonsters, filteredEmails, filteredSites)}
+        ></CardList>
       </div>
     );
   }
